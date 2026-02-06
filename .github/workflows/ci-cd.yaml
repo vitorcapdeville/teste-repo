@@ -30,6 +30,11 @@ jobs:
               with:
                   python-version: "3.12"
 
+            - name: Install SSH Client and add private key to ssh-agent
+              uses: webfactory/ssh-agent@v0.9.0
+              with:
+                  ssh-private-key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+
             - name: Use Python Semantic Release to prepare release
               id: release
               uses: python-semantic-release/python-semantic-release@v10.5.3
