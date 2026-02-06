@@ -22,24 +22,19 @@ jobs:
             contents: write
 
         steps:
-            - uses: actions/checkout@v4
-              with:
-                  fetch-depth: 0
-                  persist-credentials: false
-            - uses: actions/setup-python@v5
-              with:
-                  python-version: "3.12"
-
             - name: Install SSH Client and add private key to ssh-agent
               uses: webfactory/ssh-agent@v0.9.0
               with:
                   ssh-private-key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
 
-            - name: Configure git to use SSH
-              run: |
-                  git config --global url."git@github.com:".insteadOf "https://github.com/"
-                  git remote set-url origin git@github.com:vitorcapdeville/teste-repo.git
-
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+                  persist-credentials: false
+                  ssh-key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+            - uses: actions/setup-python@v5
+              with:
+                  python-version: "3.12"
 
             - name: Use Python Semantic Release to prepare release
               id: release
