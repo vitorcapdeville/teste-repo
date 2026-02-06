@@ -35,6 +35,12 @@ jobs:
               with:
                   ssh-private-key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
 
+            - name: Configure git to use SSH
+              run: |
+                  git config --global url."git@github.com:".insteadOf "https://github.com/"
+                  git remote set-url origin git@github.com:vitorcapdeville/teste-repo.git
+
+
             - name: Use Python Semantic Release to prepare release
               id: release
               uses: python-semantic-release/python-semantic-release@v10.5.3
