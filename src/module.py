@@ -3,4 +3,4 @@ def function():
 
 
 def function2():
-    return "really realy realy realy realy realy realy realy realy realy realy realy long string AAAAAAAAAaaaaaaaaaaaAAAAAAAAAAAAAAAAA"
+    return "really"
