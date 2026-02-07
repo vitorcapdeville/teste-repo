@@ -5,3 +5,6 @@ version = "1.0.2"
 [tool.semantic_release]
 version_toml = ["pyproject.toml:project.version"]
 build_command = "python -m pip install build && python -m build"
+
+[tool.semantic_release.remote]
+ignore_token_for_push = true
