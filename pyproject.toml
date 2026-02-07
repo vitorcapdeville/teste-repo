@@ -1,6 +1,6 @@
 [project]
 name = "teste"
-version = "1.0.2"
+version = "1.1.0"
 
 [tool.semantic_release]
 version_toml = ["pyproject.toml:project.version"]
