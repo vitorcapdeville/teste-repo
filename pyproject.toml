@@ -9,3 +9,24 @@ commit_message = "chore(release): {version} [skip ci]"
 
 [tool.semantic_release.remote]
 ignore_token_for_push = true
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = [
+    "E",    # pycodestyle errors
+    "W",    # pycodestyle warnings
+    "F",    # pyflakes
+    "I",    # isort
+    "B",    # flake8-bugbear
+    "C4",   # flake8-comprehensions
+    "UP",   # pyupgrade
+    "N",
+    "PL",
+    "PERF",
+    "FAST",
+    "NPY",
+]
+preview = true
+exclude = ["tests/*"]
