@@ -1,3 +1,7 @@
 [project]
 name = "teste"
-version = "1.0.0"
+version = "1.0.2"
+
+[tool.semantic_release]
+version_toml = ["pyproject.toml:project.version"]
+build_command = "python -m pip install build && python -m build"
